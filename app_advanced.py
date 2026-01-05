@@ -13,7 +13,7 @@ from inference_advanced import AdvancedInferenceEngine
 
 # 1. PAGE CONFIGURATION
 st.set_page_config(
-    page_title="Satellite Vision AI",
+    page_title="Satellite Images",
     page_icon="🛰️",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -107,8 +107,7 @@ def cv2_to_pil(cv2_image):
 
 def main():
     # HEADER
-    st.markdown("<h1>SATELLITE VISION AI</h1>", unsafe_allow_html=True)
-    st.markdown("<h3>Advanced Satellite Imagery Restoration System</h3>", unsafe_allow_html=True)
+    st.markdown("<h3>Atmospheric Noise-Aware Preprocessing for Accurate Change Detection in Satellite Imagery</h3>", unsafe_allow_html=True)
     
     engine = load_engine()
     
@@ -125,6 +124,24 @@ def main():
 
     if uploaded_files:
         st.markdown("<div style='height: 20px'></div>", unsafe_allow_html=True)
+
+        # --- IMMEDIATE PREVIEW: show uploaded image(s) right after upload ---
+        st.markdown("<h4 style='text-align: center; color: #34495e;'>Preview of Uploaded Image(s)</h4>", unsafe_allow_html=True)
+        # If multiple files, display them in a responsive grid
+        max_preview_cols = min(len(uploaded_files), 4)
+        preview_cols = st.columns(max_preview_cols)
+
+        for idx, f in enumerate(uploaded_files):
+            try:
+                pil_img = Image.open(f)
+            except Exception:
+                # skip files that cannot be opened as images
+                continue
+
+            col = preview_cols[idx % max_preview_cols]
+            with col:
+                st.image(pil_img, caption=f.name, width=300, output_format="PNG")
+
         
         # PROCESS BUTTON
         col_btn_1, col_btn_2, col_btn_3 = st.columns([1, 1, 1])
@@ -180,7 +197,7 @@ def main():
                 
                 # 1. AI CAPTION
                 if 'caption' in results:
-                    st.markdown("### 🖼️ AI Image Caption")
+                    st.markdown("### 🖼️ Image Caption")
                     st.markdown(f"<div style='background: #e3f2fd; padding: 15px; border-radius: 10px; margin: 10px 0; font-size: 1.1em;'><strong>{results['caption']}</strong></div>", unsafe_allow_html=True)
                 
                 # 2. QUALITY ISSUES DETECTED
@@ -221,10 +238,10 @@ def main():
                     st.markdown("<div style='background: #e8f5e9; padding: 15px; border-radius: 10px; margin: 10px 0;'>" + "<br>".join(enh_list) + "</div>", unsafe_allow_html=True)
                 
                 # 5. DETAILED EXPLANATIONS
-                if 'explanations' in results and results['explanations']:
-                    st.markdown("### 📝 Detailed Processing Log")
-                    for explanation in results['explanations']:
-                        st.markdown(f"<div style='background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 5px 0; font-size: 0.9em;'>{explanation}</div>", unsafe_allow_html=True)
+                # if 'explanations' in results and results['explanations']:
+                #     st.markdown("### 📝 Detailed Processing Log")
+                #     for explanation in results['explanations']:
+                #         st.markdown(f"<div style='background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 5px 0; font-size: 0.9em;'>{explanation}</div>", unsafe_allow_html=True)
                 
                 # DOWNLOAD
                 st.markdown("<br>", unsafe_allow_html=True)
@@ -299,7 +316,7 @@ def main():
                 
                 # COMPREHENSIVE DUAL-IMAGE REPORT
                 st.markdown("<br>", unsafe_allow_html=True)
-                st.markdown("<h3 style='text-align: center; color: #2c3e50;'>📊 Complete Comparison Report</h3>", unsafe_allow_html=True)
+                # st.markdown("<h3 style='text-align: center; color: #2c3e50;'>📊 Complete Comparison Report</h3>", unsafe_allow_html=True)
                 st.markdown("<br>", unsafe_allow_html=True)
                 
                 # CHANGE DETECTION SUMMARY

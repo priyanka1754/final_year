@@ -1,12 +1,12 @@
 """
-Aggressive Haze Removal for Maximum Clarity
+Dark Channel Prior (DCP) with Guided Filter Refinement.
 """
 import numpy as np
 import cv2
 
 class MSBDNHazeRemover:
     def __init__(self, device='cpu'):
-        print("      [DL] Aggressive haze removal initialized")
+        print("      [DL] Dark Channel Prior (DCP) with Guided Filter Refinement.")
         
     def process(self, image: np.ndarray, scene_analysis: dict) -> tuple:
         """

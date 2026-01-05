@@ -1,7 +1,4 @@
-"""
-ULTRA-AGGRESSIVE Shadow Removal - Zero Tolerance
-Removes even 1% shadows completely
-"""
+
 import numpy as np
 import cv2
 
@@ -10,9 +7,7 @@ class ShadowFormerRemover:
         print("      [ULTRA-AGGRESSIVE] Zero-tolerance shadow removal initialized")
         
     def process(self, image: np.ndarray, scene_analysis: dict) -> tuple:
-        """
-        Ultra-aggressive shadow removal - removes even 1% shadows
-        """
+       
         stats = {}
         
         try:

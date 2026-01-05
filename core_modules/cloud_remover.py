@@ -1,6 +1,8 @@
 """
 Cloud Processing - Disabled (Pure DL Mode)
 Cloud removal requires specialized models not yet integrated
+Detection: Luma-Thresholding (>240) with Morphological Filtering.
+Removal: Telea Inpainting for small scattered coverage.
 """
 import numpy as np
 

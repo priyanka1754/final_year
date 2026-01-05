@@ -1,6 +1,7 @@
 """
 Scene Understanding Module - Object Detection + Scene Analysis
 Detects people, vehicles, buildings, and other objects in images
+and provides human-readable descriptions of the scene content.
 """
 import cv2
 import numpy as np
@@ -22,7 +23,7 @@ COCO_CLASSES = [
     'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'N/A', 'dining table',
     'N/A', 'N/A', 'toilet', 'N/A', 'tv', 'laptop', 'mouse', 'remote', 'keyboard',
     'cell phone', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'N/A', 'book',
-    'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush'
+    'clock'
 ]
 
 class SceneInterpreter:

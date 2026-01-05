@@ -1,6 +1,7 @@
 """
 Professional AI Image Captioning System
 Generates detailed, human-readable descriptions of satellite imagery
+
 """
 import cv2
 import numpy as np
