@@ -1,24 +1,5 @@
-# Python cache
 __pycache__/
 *.pyc
-
-# Virtual environments
 .venv/
-venv/
-env/
-
-# ML models (large files)
 models/
-
-# Generated / test images
 images/
-
-# Logs & temp files
-*.log
-*.tmp
-
-# Editor / OS files
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
